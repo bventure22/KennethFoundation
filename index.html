@@ -508,6 +508,63 @@
     display: flex; align-items: center; justify-content: center; gap: 5px;
   }
 
+  /* ── PAYPAL FORM ── */
+  .paypal-header { margin-bottom: 6px; }
+  .paypal-header h3 {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1.4rem;
+    color: var(--dark); margin-bottom: 4px;
+  }
+  .paypal-steps {
+    display: flex; flex-direction: column; gap: 10px;
+    margin: 18px 0 22px;
+    padding: 16px 18px;
+    background: #F0F7FF;
+    border-radius: 14px;
+    border-left: 4px solid var(--sky);
+  }
+  .paypal-step {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.88rem; color: var(--dark);
+  }
+  .ps-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--sky); color: white;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 0.8rem; flex-shrink: 0;
+  }
+  .paypal-donate-btn {
+    width: 100%; padding: 16px;
+    background: #0070BA; color: white;
+    border: none; border-radius: 14px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1.1rem;
+    cursor: pointer; transition: .2s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .paypal-donate-btn:hover {
+    background: #005EA6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,112,186,0.4);
+  }
+  .paypal-alt {
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--sand); border-radius: 12px;
+    font-size: 0.82rem; color: var(--muted);
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .paypal-email {
+    font-weight: 700; color: var(--sky);
+    cursor: pointer; text-decoration: underline dotted;
+  }
+  .copy-btn {
+    padding: 4px 12px; background: var(--sky); color: white;
+    border: none; border-radius: 8px;
+    font-size: 0.78rem; font-weight: 700;
+    cursor: pointer; transition: .2s; margin-left: auto;
+  }
+  .copy-btn:hover { background: #0D4E85; }
+
   /* ── TESTIMONIALS ── */
   #testimonials { background: white; }
   .testimonials-grid {
@@ -964,8 +1021,22 @@
       </div>
     </div>
     <div class="donate-form fade-in">
-      <h3>💛 Donate Today</h3>
-      <p style="font-size:0.85rem;color:#777;margin-bottom:20px">Choose an amount or enter your own</p>
+      <div class="paypal-header">
+        <svg width="90" viewBox="0 0 101 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin-bottom:4px">
+          <path d="M12.237 2.247H5.466c-.48 0-.89.348-.964.822L1.862 19.7a.58.58 0 0 0 .573.672h3.19c.48 0 .89-.349.964-.823l.7-4.432a.974.974 0 0 1 .963-.823h2.14c4.456 0 7.026-2.156 7.698-6.43.303-1.868.012-3.336-.864-4.366-.963-1.136-2.67-1.251-4.989-1.251z" fill="#253B80"/>
+          <path d="M13.13 8.713c-.37 2.426-2.228 2.426-4.026 2.426H8.07l.718-4.546a.585.585 0 0 1 .578-.494h.47c1.224 0 2.38 0 2.974.698.356.417.464 1.035.32 1.916z" fill="#253B80"/>
+          <path d="M30.753 8.635h-3.201a.585.585 0 0 0-.578.494l-.148.938-.235-.34c-.727-1.055-2.349-1.408-3.968-1.408-3.712 0-6.884 2.812-7.503 6.758-.321 1.969.135 3.851 1.248 5.163 1.022 1.207 2.483 1.71 4.224 1.71 2.994 0 4.657-1.926 4.657-1.926l-.15.931a.58.58 0 0 0 .573.672h2.883c.48 0 .889-.348.963-.822l1.729-10.948a.58.58 0 0 0-.572-.672zm-4.465 6.535c-.325 1.922-1.852 3.212-3.796 3.212-1.977 0-3.17-1.163-3.17-3.07 0-2.106 1.556-3.272 3.456-3.272 1.942 0 3.17 1.163 3.17 3.07.001.02-.016.04-.016.06h-.644z" fill="#253B80"/>
+          <path d="M48.95 8.635h-3.215a.974.974 0 0 0-.806.428l-4.647 6.845-1.97-6.578a.974.974 0 0 0-.933-.695h-3.16a.582.582 0 0 0-.552.771l3.712 10.895-3.49 4.929a.581.581 0 0 0 .475.919h3.212a.971.971 0 0 0 .801-.422l11.207-16.175a.58.58 0 0 0-.474-.917z" fill="#253B80"/>
+          <path d="M60.266 2.247h-6.77c-.48 0-.89.348-.965.822L49.89 19.7a.58.58 0 0 0 .572.672h3.418c.337 0 .623-.244.676-.579l.737-4.676a.974.974 0 0 1 .963-.823h2.14c4.456 0 7.025-2.156 7.698-6.43.303-1.868.012-3.336-.864-4.366-.963-1.136-2.668-1.251-4.964-1.251z" fill="#179BD7"/>
+          <path d="M61.159 8.713c-.37 2.426-2.228 2.426-4.025 2.426h-1.034l.717-4.546a.585.585 0 0 1 .578-.494h.47c1.224 0 2.38 0 2.974.698.356.417.465 1.035.32 1.916z" fill="#179BD7"/>
+          <path d="M78.782 8.635h-3.2a.585.585 0 0 0-.579.494l-.148.938-.234-.34c-.727-1.055-2.35-1.408-3.968-1.408-3.712 0-6.884 2.812-7.504 6.758-.32 1.969.136 3.851 1.249 5.163 1.022 1.207 2.482 1.71 4.224 1.71 2.993 0 4.657-1.926 4.657-1.926l-.15.931a.581.581 0 0 0 .572.672h2.884c.48 0 .889-.348.963-.822l1.729-10.948a.58.58 0 0 0-.495-.222zm-4.465 6.535c-.325 1.922-1.852 3.212-3.796 3.212-1.977 0-3.17-1.163-3.17-3.07 0-2.106 1.556-3.272 3.456-3.272 1.942 0 3.17 1.163 3.17 3.07 0 .02-.016.04-.016.06h-.644z" fill="#179BD7"/>
+          <path d="M83.362 3.014l-2.67 16.99a.58.58 0 0 0 .572.672h2.76c.48 0 .89-.348.964-.822L87.63 2.723a.58.58 0 0 0-.572-.672h-3.097a.586.586 0 0 0-.599.963z" fill="#179BD7"/>
+        </svg>
+        <h3>💛 Donate via PayPal</h3>
+        <p style="font-size:0.82rem;color:#777;margin-bottom:20px">Select an amount, then click the button to be securely redirected to PayPal.</p>
+      </div>
+
+      <!-- Amount selector -->
       <div class="amount-grid">
         <button class="amount-btn" onclick="selectAmount(this, 15)">$15</button>
         <button class="amount-btn active" onclick="selectAmount(this, 35)">$35</button>
@@ -974,50 +1045,40 @@
         <button class="amount-btn" onclick="selectAmount(this, 300)">$300</button>
         <button class="amount-btn" onclick="selectAmount(this, 500)">$500</button>
       </div>
+      <div class="form-group" style="margin-top:14px">
+        <label>Or enter a custom amount (USD)</label>
+        <input type="number" id="customAmount" placeholder="e.g. 50" min="5" oninput="clearSelected()" />
+      </div>
+
+      <!-- Note field -->
       <div class="form-group">
-        <label>Custom Amount (USD)</label>
-        <input type="number" id="customAmount" placeholder="e.g. 50" min="5" />
+        <label>Add a message (optional)</label>
+        <input type="text" id="donationNote" placeholder="e.g. For the Junior Safari Program 🦁" maxlength="80" />
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Jane" />
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Doe" />
-        </div>
+
+      <!-- What happens box -->
+      <div class="paypal-steps">
+        <div class="paypal-step"><div class="ps-num">1</div><span>Choose your amount above</span></div>
+        <div class="paypal-step"><div class="ps-num">2</div><span>Click <strong>Donate with PayPal</strong></span></div>
+        <div class="paypal-step"><div class="ps-num">3</div><span>Complete payment securely on PayPal.com</span></div>
       </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="jane@example.com" />
-      </div>
-      <div class="form-group">
-        <label>Card Number</label>
-        <input type="text" placeholder="**** **** **** ****" maxlength="19" />
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Expiry</label>
-          <input type="text" placeholder="MM / YY" maxlength="7" />
-        </div>
-        <div class="form-group">
-          <label>CVV</label>
-          <input type="text" placeholder="***" maxlength="4" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Donation Frequency</label>
-        <select>
-          <option>One-time gift</option>
-          <option>Monthly recurring</option>
-          <option>Annual gift</option>
-        </select>
-      </div>
-      <button class="donate-btn" onclick="handleDonate()">
-        ❤️ Donate Now
+
+      <!-- PayPal CTA -->
+      <button class="paypal-donate-btn" onclick="goToPayPal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
+        Donate with PayPal
       </button>
-      <p class="secure-note">🔒 Secure, encrypted transaction via SSL</p>
+
+      <p class="secure-note" style="margin-top:16px">
+        🔒 You'll be redirected to PayPal's secure site &nbsp;·&nbsp; No account needed
+      </p>
+
+      <!-- Alternate: copy email -->
+      <div class="paypal-alt">
+        Or send directly to PayPal email:
+        <span class="paypal-email" onclick="copyEmail()">bventure22@gmail.com</span>
+        <button class="copy-btn" onclick="copyEmail()" id="copyBtn">Copy</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1190,12 +1251,36 @@
     selectedAmount = amt;
     document.getElementById('customAmount').value = '';
   }
+  function clearSelected() {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    selectedAmount = null;
+  }
 
-  // Donate
-  function handleDonate() {
+  // PayPal P2P redirect
+  function goToPayPal() {
     const custom = document.getElementById('customAmount').value;
     const amt = custom || selectedAmount;
-    showToast(`🎉 Thank you for your $${amt} donation! You're changing lives.`);
+    const note = document.getElementById('donationNote').value.trim();
+    if (!amt || isNaN(amt) || Number(amt) < 1) {
+      showToast('⚠️ Please select or enter a donation amount first.');
+      return;
+    }
+    const paypalEmail = 'bventure22@gmail.com';
+    const currency = 'USD';
+    const itemName = encodeURIComponent('Kenneth Children Foundation Donation' + (note ? ' – ' + note : ''));
+    const url = `https://www.paypal.com/paypalme/bventure22/${amt}`;
+    showToast(`🚀 Redirecting you to PayPal to complete your $${amt} donation…`);
+    setTimeout(() => window.open(url, '_blank'), 900);
+  }
+
+  // Copy PayPal email
+  function copyEmail() {
+    navigator.clipboard.writeText('bventure22@gmail.com').then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied!';
+      btn.style.background = 'var(--leaf)';
+      setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = ''; }, 2200);
+    });
   }
 
   // Contact

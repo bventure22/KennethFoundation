@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kenneth Children Foundation | Tanzania</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --sun: #F9A825;
+    --earth: #5D4037;
+    --sky: #1B6CA8;
+    --leaf: #2E7D32;
+    --sand: #FFF8E1;
+    --flame: #E64A19;
+    --white: #FFFFFF;
+    --dark: #1A1A2E;
+    --muted: #7B6E64;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--sand);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 5%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo-icon {
+    width: 44px; height: 44px;
+    background: var(--sun);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 22px;
+  }
+  .nav-logo span {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--earth);
+    line-height: 1.1;
+  }
+  .nav-logo small { display: block; font-size: 0.65rem; font-weight: 600; color: var(--sky); }
+
+  .nav-links {
+    display: flex; gap: 28px; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; font-weight: 700;
+    color: var(--earth); font-size: 0.9rem;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--sky); }
+
+  .nav-cta {
+    background: var(--flame);
+    color: white; border: none;
+    padding: 10px 22px; border-radius: 50px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700; font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230,74,25,0.35); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 26px; height: 3px; background: var(--earth); border-radius: 2px; transition: .3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding: 100px 5% 60px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, rgba(27,108,168,0.82) 0%, rgba(93,64,55,0.55) 60%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 620px;
+    animation: fadeUp .9s ease both;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 6px 16px; border-radius: 50px;
+    font-weight: 700; font-size: 0.8rem;
+    margin-bottom: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--sun); }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 500px;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--sun);
+    color: var(--dark);
+    padding: 14px 32px; border-radius: 50px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1rem;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(249,168,37,.45); }
+
+  .btn-outline {
+    background: transparent;
+    color: white;
+    padding: 13px 30px; border-radius: 50px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: .2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.15); }
+
+  .hero-stats {
+    position: absolute; bottom: 36px; right: 5%; z-index: 1;
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 16px 24px; border-radius: 16px;
+    text-align: center; color: white;
+    animation: fadeUp 1.1s ease both;
+  }
+  .stat-card:nth-child(2) { animation-delay: .15s; }
+  .stat-card:nth-child(3) { animation-delay: .3s; }
+  .stat-card strong { display: block; font-family: 'Baloo 2', cursive; font-size: 1.8rem; font-weight: 800; }
+  .stat-card small { font-size: 0.75rem; opacity: .85; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 90px 5%; }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--dark);
+    font-weight: 800; font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 50px;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: white;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+    margin-top: 50px;
+  }
+  .about-image-stack { position: relative; }
+  .about-img-main {
+    width: 100%;
+    border-radius: 24px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  .about-img-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--sun);
+    padding: 18px 24px; border-radius: 18px;
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1.5rem;
+    color: var(--dark);
+    box-shadow: 0 10px 30px rgba(249,168,37,.4);
+  }
+  .about-img-badge small { display: block; font-size: 0.72rem; font-weight: 700; }
+
+  .about-features { margin-top: 30px; display: flex; flex-direction: column; gap: 18px; }
+  .about-feature {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .about-feature-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: var(--sand); display: grid; place-items: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .about-feature h4 { font-family: 'Baloo 2', cursive; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .about-feature p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── PROGRAMS ── */
+  #programs {
+    background: var(--sand);
+  }
+  .programs-header { text-align: center; }
+  .programs-header .section-subtitle { margin: 0 auto; }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 50px;
+  }
+  .program-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .program-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.13); }
+  .program-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .program-card-body { padding: 24px; }
+  .program-card-emoji { font-size: 2rem; margin-bottom: 12px; }
+  .program-card h3 { font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 1.15rem; margin-bottom: 8px; }
+  .program-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+  .program-link {
+    font-weight: 700; font-size: 0.85rem;
+    color: var(--sky); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .program-link:hover { gap: 10px; }
+
+  /* ── AI IMAGE GALLERY ── */
+  #gallery {
+    background: var(--dark);
+    color: white;
+  }
+  #gallery .section-title { color: white; }
+  #gallery .section-subtitle { color: rgba(255,255,255,0.65); }
+  #gallery .section-tag { background: var(--sun); }
+
+  .gallery-header { margin-bottom: 40px; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+  .gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 2; }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    aspect-ratio: inherit;
+    transition: transform .4s;
+    display: block;
+    min-height: 220px;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-item .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    opacity: 0; transition: opacity .3s;
+    display: flex; align-items: flex-end; padding: 20px;
+    color: white;
+  }
+  .gallery-item:hover .overlay { opacity: 1; }
+  .overlay span { font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 1rem; }
+
+  /* ── IMPACT ── */
+  #impact { background: white; }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px; margin-top: 50px;
+  }
+  .impact-card {
+    text-align: center;
+    padding: 36px 24px;
+    border-radius: 20px;
+    background: var(--sand);
+    transition: transform .3s;
+  }
+  .impact-card:hover { transform: translateY(-6px); }
+  .impact-card .icon { font-size: 2.8rem; margin-bottom: 16px; }
+  .impact-card .number {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.6rem; font-weight: 800;
+    color: var(--sky); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .impact-card h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+  .impact-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── TEAM ── */
+  #team { background: var(--sand); }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px; margin-top: 50px;
+  }
+  .team-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform .3s;
+  }
+  .team-card:hover { transform: translateY(-6px); }
+  .team-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .team-card h4 { font-family: 'Baloo 2', cursive; font-weight: 800; margin: 16px 0 4px; font-size: 1.05rem; }
+  .team-card span { font-size: 0.82rem; color: var(--sky); font-weight: 700; }
+
+  /* ── DONATE ── */
+  #donate {
+    background: linear-gradient(135deg, var(--sky) 0%, #0D4E85 100%);
+    color: white;
+    position: relative; overflow: hidden;
+  }
+  #donate::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  #donate::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -60px;
+    width: 300px; height: 300px;
+    background: rgba(249,168,37,0.1);
+    border-radius: 50%;
+  }
+  #donate .section-tag { background: var(--sun); }
+  #donate .section-title { color: white; }
+  #donate .section-subtitle { color: rgba(255,255,255,0.75); }
+
+  .donate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: start;
+    margin-top: 50px; position: relative; z-index: 1;
+  }
+
+  .donate-info h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem; font-weight: 800;
+    margin-bottom: 20px; color: var(--sun);
+  }
+
+  .donate-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .donate-perks li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.95rem; color: rgba(255,255,255,0.9);
+  }
+  .donate-perks li span { font-size: 1.4rem; }
+
+  .donate-form {
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+  }
+  .donate-form h3 {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1.4rem;
+    color: var(--dark); margin-bottom: 24px;
+  }
+
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-bottom: 16px;
+  }
+  .amount-btn {
+    padding: 12px 8px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700; font-size: 1rem;
+    color: var(--dark);
+    background: white;
+    cursor: pointer;
+    transition: .2s;
+    text-align: center;
+  }
+  .amount-btn:hover,
+  .amount-btn.active {
+    border-color: var(--sky);
+    background: var(--sky);
+    color: white;
+  }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-weight: 700; font-size: 0.85rem;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    outline: none; transition: border .2s;
+    background: white; color: var(--dark);
+  }
+  .form-group input:focus,
+  .form-group select:focus { border-color: var(--sky); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .donate-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--flame);
+    color: white;
+    border: none; border-radius: 14px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1.1rem;
+    cursor: pointer;
+    transition: .2s;
+    margin-top: 6px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .donate-btn:hover { background: #BF360C; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,74,25,0.4); }
+
+  .secure-note {
+    text-align: center; margin-top: 14px;
+    font-size: 0.78rem; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: white; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 50px;
+  }
+  .testimonial-card {
+    background: var(--sand);
+    padding: 28px; border-radius: 20px;
+    position: relative;
+    transition: transform .3s;
+  }
+  .testimonial-card:hover { transform: translateY(-6px); }
+  .testimonial-card::before {
+    content: '"';
+    font-size: 5rem;
+    font-family: Georgia, serif;
+    color: var(--sun);
+    line-height: 1;
+    position: absolute;
+    top: 10px; left: 20px;
+    opacity: 0.4;
+  }
+  .testimonial-card p { font-size: 0.9rem; line-height: 1.7; color: var(--dark); position: relative; z-index: 1; margin-bottom: 20px; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-author img {
+    width: 42px; height: 42px; border-radius: 50%; object-fit: cover;
+  }
+  .testimonial-author strong { display: block; font-size: 0.88rem; font-weight: 700; }
+  .testimonial-author span { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--sand); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: start;
+    margin-top: 50px;
+  }
+  .contact-info-item {
+    display: flex; gap: 14px; align-items: flex-start; margin-bottom: 24px;
+  }
+  .contact-info-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: white; display: grid; place-items: center;
+    font-size: 20px; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .contact-info-item h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 3px; }
+  .contact-info-item p { font-size: 0.85rem; color: var(--muted); }
+  .contact-form {
+    background: white; border-radius: 20px;
+    padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  .contact-form h3 {
+    font-family: 'Baloo 2', cursive; font-weight: 800;
+    font-size: 1.3rem; margin-bottom: 24px;
+  }
+  .contact-form textarea {
+    width: 100%; padding: 12px 16px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    outline: none; resize: vertical; min-height: 100px;
+    transition: border .2s;
+  }
+  .contact-form textarea:focus { border-color: var(--sky); }
+  .contact-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--sky);
+    color: white; border: none; border-radius: 12px;
+    font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 1rem;
+    cursor: pointer; transition: .2s; margin-top: 6px;
+  }
+  .contact-submit:hover { background: #0D4E85; transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.75);
+    padding: 60px 5% 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 50px;
+  }
+  .footer-brand .nav-logo-icon { background: var(--sun); margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 12px; max-width: 280px; }
+  .footer-col h4 {
+    font-family: 'Baloo 2', cursive; font-weight: 800;
+    font-size: 1rem; color: white; margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.65); text-decoration: none;
+    font-size: 0.85rem; transition: color .2s;
+  }
+  .footer-col ul a:hover { color: var(--sun); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.8rem;
+  }
+  .footer-bottom a { color: var(--sun); text-decoration: none; }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 72px; left: 0; right: 0; z-index: 998;
+    background: white;
+    padding: 20px 5%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex-direction: column; gap: 16px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none; color: var(--earth);
+    font-weight: 700; font-size: 1rem;
+    padding: 8px 0; border-bottom: 1px solid #F0EDE8;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+    background: var(--leaf); color: white;
+    padding: 16px 24px; border-radius: 14px;
+    font-weight: 700; font-size: 0.95rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(100px); opacity: 0;
+    transition: .4s;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid,
+    .donate-grid,
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { position: relative; margin-top: 40px; bottom: auto; right: auto; }
+    .hero { flex-direction: column; }
+    .donate-grid { gap: 30px; }
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; }
+    .form-row { grid-template-columns: 1fr; }
+    .amount-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-img-badge { bottom: 10px; right: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🌍</div>
+    <span>Kenneth Children Foundation<small>Dar es Salaam, Tanzania</small></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#donate" class="nav-cta">Donate Now ❤️</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#programs" onclick="closeMenu()">Programs</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#impact" onclick="closeMenu()">Impact</a>
+  <a href="#team" onclick="closeMenu()">Team</a>
+  <a href="#donate" onclick="closeMenu()">Donate</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🦁 Tanzania's Premier Children Tourism NGO</div>
+    <h1>Empowering Children Through <span class="accent">Discovery & Adventure</span></h1>
+    <p>Kenneth Children Foundation bridges the gap between Tanzanian children and the rich wonders of their homeland — from Mount Kilimanjaro to the Serengeti — through playful, immersive tourism education.</p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn-primary">Explore Our Programs</a>
+      <a href="#donate" class="btn-outline">Support a Child</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><strong>4,200+</strong><small>Children Reached</small></div>
+      <div class="stat-card"><strong>18</strong><small>Schools Partnered</small></div>
+      <div class="stat-card"><strong>6</strong><small>Regions Covered</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-stack fade-in">
+      <img
+        class="about-img-main"
+        src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&q=80"
+        alt="Children on a safari experience"
+      />
+      <div class="about-img-badge">Est. 2015<small>Dar es Salaam</small></div>
+    </div>
+    <div class="fade-in">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">Bringing Tanzania's Wonders to Every Child</h2>
+      <p class="section-subtitle">Founded in 2015, Kenneth Children Foundation was born from a simple truth: Tanzania's children are surrounded by some of the world's greatest natural and cultural treasures — yet many have never experienced them.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon">🦒</div>
+          <div>
+            <h4>Wildlife Discovery Kits</h4>
+            <p>Hands-on educational materials featuring Tanzania's iconic animals, helping children learn through play and storytelling.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🗺️</div>
+          <div>
+            <h4>Heritage Map Programs</h4>
+            <p>Interactive maps and field trips connecting children to national parks, historical sites, and coastal wonders of Tanzania.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🎨</div>
+          <div>
+            <h4>Playful Curriculum Design</h4>
+            <p>We co-create tourism literacy materials with educators — puzzles, games, books, and digital tools — to make learning joyful.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="programs-header fade-in">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Our Programs</h2>
+    <p class="section-subtitle">From classrooms to conservation areas, our programs spark curiosity and build pride in Tanzania's extraordinary heritage.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card fade-in">
+      <img class="program-card-img" src="https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=600&q=80" alt="Safari learning" />
+      <div class="program-card-body">
+        <div class="program-card-emoji">🦁</div>
+        <h3>Junior Safari Explorer</h3>
+        <p>Guided wildlife discovery days in national parks, paired with illustrated animal journals for children aged 7–14. Safety-first, fun-always.</p>
+        <a class="program-link" href="#donate">Support this →</a>
+      </div>
+    </div>
+    <div class="program-card fade-in">
+      <img class="program-card-img" src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=600&q=80" alt="Classroom learning" />
+      <div class="program-card-body">
+        <div class="program-card-emoji">📚</div>
+        <h3>Tourism Literacy in Schools</h3>
+        <p>We deliver engaging tourism education directly into classrooms — covering ecology, culture, history and sustainable travel practices.</p>
+        <a class="program-link" href="#donate">Support this →</a>
+      </div>
+    </div>
+    <div class="program-card fade-in">
+      <img class="program-card-img" src="https://images.unsplash.com/photo-1567271407-2de8c11e97cc?w=600&q=80" alt="Craft workshop" />
+      <div class="program-card-body">
+        <div class="program-card-emoji">🎭</div>
+        <h3>Cultural Play Workshops</h3>
+        <p>Interactive storytelling, Swahili songs, tribal art, and traditional dance — children explore their own culture as tourism ambassadors.</p>
+        <a class="program-link" href="#donate">Support this →</a>
+      </div>
+    </div>
+    <div class="program-card fade-in">
+      <img class="program-card-img" src="https://images.unsplash.com/photo-1578869671760-bc7c4b09a7ac?w=600&q=80" alt="Kilimanjaro view" />
+      <div class="program-card-body">
+        <div class="program-card-emoji">🏔️</div>
+        <h3>Kilimanjaro Dream Camp</h3>
+        <p>Annual mountain ecology camp where selected students spend 3 days at the foothills, learning conservation and environmental stewardship.</p>
+        <a class="program-link" href="#donate">Support this →</a>
+      </div>
+    </div>
+    <div class="program-card fade-in">
+      <img class="program-card-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Ocean and beach" />
+      <div class="program-card-body">
+        <div class="program-card-emoji">🐠</div>
+        <h3>Coastal Discovery Tours</h3>
+        <p>Zanzibar and Dar es Salaam shoreline exploration — teaching marine ecosystems, history of the Swahili coast, and ocean conservation.</p>
+        <a class="program-link" href="#donate">Support this →</a>
+      </div>
+    </div>
+    <div class="program-card fade-in">
+      <img class="program-card-img" src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&q=80" alt="Children art" />
+      <div class="program-card-body">
+        <div class="program-card-emoji">🎮</div>
+        <h3>Digital Tourism Games</h3>
+        <p>Tablet-based interactive games that simulate safari decision-making, ecosystem balance, and responsible tourism choices for children.</p>
+        <a class="program-link" href="#donate">Support this →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI GALLERY -->
+<section id="gallery">
+  <div class="gallery-header fade-in">
+    <div class="section-tag">Tanzania Through Young Eyes</div>
+    <h2 class="section-title">Moments That Matter</h2>
+    <p class="section-subtitle">Glimpses of children discovering the extraordinary beauty and wildlife of their Tanzanian homeland.</p>
+  </div>
+  <div class="gallery-grid fade-in">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&q=80" alt="Serengeti wildebeest" />
+      <div class="overlay"><span>Serengeti Migration Wonder</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=600&q=80" alt="African child smiling" />
+      <div class="overlay"><span>Joy of Discovery</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80" alt="Elephant in Tanzania" />
+      <div class="overlay"><span>Meeting the Giants</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=900&q=80" alt="Kilimanjaro summit" />
+      <div class="overlay"><span>Kilimanjaro Dreams</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1612290015776-bcc39a1c41d9?w=600&q=80" alt="Zanzibar beach" />
+      <div class="overlay"><span>Zanzibar Blue</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="text-center fade-in" style="text-align:center">
+    <div class="section-tag">Our Impact</div>
+    <h2 class="section-title">Numbers That Inspire</h2>
+    <p class="section-subtitle" style="margin:0 auto">Every number is a child who has looked at Tanzania with fresh, proud eyes.</p>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-card fade-in">
+      <div class="icon">👧🏾</div>
+      <div class="number">4,200+</div>
+      <h4>Children Educated</h4>
+      <p>Across urban and rural schools in 6 Tanzanian regions</p>
+    </div>
+    <div class="impact-card fade-in">
+      <div class="icon">🏫</div>
+      <div class="number">18</div>
+      <h4>Partner Schools</h4>
+      <p>From Dar es Salaam to Arusha, Mwanza and beyond</p>
+    </div>
+    <div class="impact-card fade-in">
+      <div class="icon">📦</div>
+      <div class="number">12,000</div>
+      <h4>Education Kits Distributed</h4>
+      <p>Playful learning materials reaching children at home</p>
+    </div>
+    <div class="impact-card fade-in">
+      <div class="icon">🌿</div>
+      <div class="number">82%</div>
+      <h4>Increase in Conservation Awareness</h4>
+      <p>Measured post-program among participating students</p>
+    </div>
+    <div class="impact-card fade-in">
+      <div class="icon">❤️</div>
+      <div class="number">300+</div>
+      <h4>Global Donors</h4>
+      <p>People around the world who believe in our mission</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="fade-in">
+    <div class="section-tag">The People</div>
+    <h2 class="section-title">Our Team</h2>
+    <p class="section-subtitle">Passionate educators, conservationists, and creatives united by a love for children and Tanzania.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-in">
+      <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=400&q=80" alt="Kenneth Mwangi" />
+      <h4>Kenneth Mwangi</h4>
+      <span>Founder & Executive Director</span>
+    </div>
+    <div class="team-card fade-in">
+      <img src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?w=400&q=80" alt="Amina Saleh" />
+      <h4>Amina Saleh</h4>
+      <span>Head of Education Programs</span>
+    </div>
+    <div class="team-card fade-in">
+      <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&q=80" alt="Joseph Ntemi" />
+      <h4>Joseph Ntemi</h4>
+      <span>Wildlife & Safari Coordinator</span>
+    </div>
+    <div class="team-card fade-in">
+      <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&q=80" alt="Grace Kilonzo" />
+      <h4>Grace Kilonzo</h4>
+      <span>Creative Materials Designer</span>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate">
+  <div class="donate-grid">
+    <div class="fade-in">
+      <div class="section-tag">Make A Difference</div>
+      <h2 class="section-title">Your Donation Shapes a Child's Future</h2>
+      <p class="section-subtitle">Every contribution — large or small — directly funds educational materials, safari trips, and school programs for Tanzanian children.</p>
+      <div style="margin-top:32px">
+        <h3>What Your Gift Provides</h3>
+        <ul class="donate-perks">
+          <li><span>📦</span> $15 — One complete wildlife discovery kit for a child</li>
+          <li><span>📚</span> $35 — A full term of tourism education for one student</li>
+          <li><span>🦁</span> $75 — Funds one child's Junior Safari Explorer day trip</li>
+          <li><span>🏫</span> $150 — Equips a classroom with educational games & materials</li>
+          <li><span>🌍</span> $500 — Sponsors a child for an entire year of programs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="donate-form fade-in">
+      <h3>💛 Donate Today</h3>
+      <p style="font-size:0.85rem;color:#777;margin-bottom:20px">Choose an amount or enter your own</p>
+      <div class="amount-grid">
+        <button class="amount-btn" onclick="selectAmount(this, 15)">$15</button>
+        <button class="amount-btn active" onclick="selectAmount(this, 35)">$35</button>
+        <button class="amount-btn" onclick="selectAmount(this, 75)">$75</button>
+        <button class="amount-btn" onclick="selectAmount(this, 150)">$150</button>
+        <button class="amount-btn" onclick="selectAmount(this, 300)">$300</button>
+        <button class="amount-btn" onclick="selectAmount(this, 500)">$500</button>
+      </div>
+      <div class="form-group">
+        <label>Custom Amount (USD)</label>
+        <input type="number" id="customAmount" placeholder="e.g. 50" min="5" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@example.com" />
+      </div>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="**** **** **** ****" maxlength="19" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Expiry</label>
+          <input type="text" placeholder="MM / YY" maxlength="7" />
+        </div>
+        <div class="form-group">
+          <label>CVV</label>
+          <input type="text" placeholder="***" maxlength="4" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Donation Frequency</label>
+        <select>
+          <option>One-time gift</option>
+          <option>Monthly recurring</option>
+          <option>Annual gift</option>
+        </select>
+      </div>
+      <button class="donate-btn" onclick="handleDonate()">
+        ❤️ Donate Now
+      </button>
+      <p class="secure-note">🔒 Secure, encrypted transaction via SSL</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="fade-in" style="text-align:center">
+    <div class="section-tag">Voices</div>
+    <h2 class="section-title">What People Say</h2>
+    <p class="section-subtitle" style="margin:0 auto">From parents to donors to educators — these are the stories that keep us going.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <p>My daughter came home from the safari day and spent the whole evening drawing elephants and telling me facts about the Serengeti. She's never been so excited about learning. Kenneth Foundation changed her perspective entirely.</p>
+      <div class="testimonial-author">
+        <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=100&q=80" alt="Parent" />
+        <div><strong>Fatuma Hassan</strong><span>Parent, Dar es Salaam</span></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <p>As a teacher, I've seen how tourism education transforms shy children into curious explorers. The materials from Kenneth Foundation are creative, well-researched, and genuinely fun for the whole class.</p>
+      <div class="testimonial-author">
+        <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=100&q=80" alt="Teacher" />
+        <div><strong>Mr. Emmanuel Osei</strong><span>Primary School Teacher, Arusha</span></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <p>I donated because I believed in the mission. A year later, I visited a partner school and saw children performing plays about Zanzibar's history. That moment told me every dollar went exactly where it should.</p>
+      <div class="testimonial-author">
+        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=100&q=80" alt="Donor" />
+        <div><strong>Sarah Mitchell</strong><span>Global Donor, UK</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="fade-in">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">We'd Love to Hear From You</h2>
+      <p class="section-subtitle">Whether you're a donor, educator, volunteer, or media partner — our doors are always open.</p>
+      <div style="margin-top: 36px">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📍</div>
+          <div>
+            <h4>Our Office</h4>
+            <p>Plot 14, Msasani Road, Dar es Salaam, Tanzania</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">✉️</div>
+          <div>
+            <h4>Email Us</h4>
+            <p>info@kennethchildrenfoundation.org</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <p>+255 22 123 4567</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🕐</div>
+          <div>
+            <h4>Office Hours</h4>
+            <p>Mon – Fri: 8:00 AM – 5:00 PM (EAT)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form fade-in">
+      <h3>Send Us a Message</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full name" />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" placeholder="How can we help?" />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us more..."></textarea>
+      </div>
+      <button class="contact-submit" onclick="handleContact()">Send Message 📨</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🌍</div>
+        <span style="color:white">Kenneth Children Foundation<small style="color:#F9A825">Dar es Salaam, Tanzania</small></span>
+      </div>
+      <p>Empowering Tanzanian children to explore, understand, and cherish their homeland's extraordinary natural and cultural treasures through playful tourism education.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#programs">Junior Safari Explorer</a></li>
+        <li><a href="#programs">Tourism in Schools</a></li>
+        <li><a href="#programs">Cultural Workshops</a></li>
+        <li><a href="#programs">Kilimanjaro Camp</a></li>
+        <li><a href="#programs">Coastal Discovery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Organisation</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate">Donate</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">🐦 Twitter / X</a></li>
+        <li><a href="#">📘 Facebook</a></li>
+        <li><a href="#">📸 Instagram</a></li>
+        <li><a href="#">▶️ YouTube</a></li>
+        <li><a href="#">💼 LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Kenneth Children Foundation. All rights reserved. Registered NGO in Tanzania.</span>
+    <span>Made with ❤️ in <a href="#">Dar es Salaam</a></span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ Thank you! Your message has been received.</div>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Donation amounts
+  let selectedAmount = 35;
+  function selectAmount(btn, amt) {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedAmount = amt;
+    document.getElementById('customAmount').value = '';
+  }
+
+  // Donate
+  function handleDonate() {
+    const custom = document.getElementById('customAmount').value;
+    const amt = custom || selectedAmount;
+    showToast(`🎉 Thank you for your $${amt} donation! You're changing lives.`);
+  }
+
+  // Contact
+  function handleContact() {
+    showToast('✅ Message sent! We\'ll get back to you within 24 hours.');
+  }
+
+  // Toast
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // Smooth nav shadow
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 10
+      ? '0 4px 30px rgba(0,0,0,0.12)'
+      : '0 2px 20px rgba(0,0,0,0.08)';
+  });
+
+  // Format card input
+  document.addEventListener('input', e => {
+    if (e.target.placeholder === '**** **** **** ****') {
+      let v = e.target.value.replace(/\D/g,'').substring(0,16);
+      e.target.value = v.replace(/(.{4})/g,'$1 ').trim();
+    }
+  });
+</script>
+</body>
+</html>
